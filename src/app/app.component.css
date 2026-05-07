@@ -1,0 +1,404 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.bg {
+
+  height: 100vh;
+
+  overflow: hidden;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  background:
+    radial-gradient(
+      circle at top,
+      #a855f7,
+      #6d28d9,
+      #1e1b4b
+    );
+
+  font-family: 'Poppins', sans-serif;
+
+  position: relative;
+}
+
+/* CARD */
+
+.card {
+
+  width: 90%;
+  max-width: 460px;
+
+  padding: 28px;
+
+  border-radius: 28px;
+
+  background:
+    rgba(255, 255, 255, 0.10);
+
+  backdrop-filter: blur(22px);
+
+  border:
+    1px solid rgba(255,255,255,0.2);
+
+  color: #fff;
+
+  text-align: center;
+
+  z-index: 10;
+
+  box-shadow:
+    0 25px 60px rgba(0,0,0,0.45);
+
+  animation: zoomIn 1s ease;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  opacity: 0.85;
+}
+
+p {
+
+  margin-top: 10px;
+
+  color: #ede9fe;
+}
+
+/* SLIDER */
+
+.slider {
+
+  width: 100%;
+  height: 300px;
+
+  border-radius: 24px;
+
+  overflow: hidden;
+
+  margin: 18px auto;
+}
+
+.slider img {
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: 1s;
+}
+
+/* BUTTONS */
+
+.buttons {
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  flex-wrap: wrap;
+}
+
+button {
+
+  padding: 11px 16px;
+
+  border-radius: 25px;
+
+  border: none;
+
+  cursor: pointer;
+
+  background:
+    linear-gradient(
+      135deg,
+      #a855f7,
+      #ec4899
+    );
+
+  color: white;
+
+  font-weight: bold;
+
+  transition: 0.3s;
+}
+
+button:hover {
+
+  transform: scale(1.05);
+}
+
+.wish {
+
+  margin-top: 15px;
+
+  animation: fadeIn 1s ease;
+}
+
+/* CONFETTI */
+
+.confetti {
+
+  position: fixed;
+
+  width: 100%;
+  height: 100%;
+
+  top: 0;
+
+  pointer-events: none;
+
+  overflow: hidden;
+
+  z-index: 1;
+}
+
+.piece {
+
+  position: absolute;
+
+  top: -10px;
+
+  width: 10px;
+  height: 10px;
+
+  animation:
+    fall 4s linear forwards;
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+.square {
+  border-radius: 2px;
+}
+
+.triangle {
+
+  width: 0;
+  height: 0;
+
+  background: transparent !important;
+
+  border-left:
+    6px solid transparent;
+
+  border-right:
+    6px solid transparent;
+
+  border-bottom: 10px solid;
+}
+
+/* ENVELOPE */
+
+.envelope-screen {
+
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 25px;
+
+  z-index: 50;
+}
+
+.envelope {
+
+  position: relative;
+
+  width: 220px;
+  height: 140px;
+
+  background: #ec4899;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  animation: pulse 2s infinite;
+}
+
+.top {
+
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  background: #f472b6;
+
+  clip-path:
+    polygon(0 0, 50% 50%, 100% 0);
+
+  transition: 1s;
+}
+
+.envelope:hover .top {
+
+  transform: rotateX(180deg);
+}
+
+.letter {
+
+  position: absolute;
+
+  width: 90%;
+  height: 90%;
+
+  background: white;
+
+  left: 5%;
+  top: 5%;
+
+  border-radius: 8px;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  font-size: 3rem;
+}
+
+.start-btn {
+
+  padding: 12px 22px;
+
+  border: none;
+
+  border-radius: 30px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #a855f7,
+      #ec4899
+    );
+
+  color: white;
+
+  font-weight: bold;
+}
+
+/* BALLOONS */
+
+.balloon {
+
+  position: absolute;
+
+  bottom: -150px;
+
+  width: 60px;
+  height: 80px;
+
+  border-radius: 50%;
+
+  opacity: 0.7;
+
+  animation:
+    floatUp 10s linear infinite;
+}
+
+.balloon::after {
+
+  content: '';
+
+  position: absolute;
+
+  width: 2px;
+  height: 80px;
+
+  background: white;
+
+  left: 50%;
+  top: 80px;
+}
+
+/* ANIMATIONS */
+
+@keyframes fall {
+
+  to {
+
+    transform:
+      translateY(110vh)
+      rotate(360deg);
+
+    opacity: 0;
+  }
+}
+
+@keyframes zoomIn {
+
+  from {
+
+    transform: scale(0.4);
+
+    opacity: 0;
+  }
+
+  to {
+
+    transform: scale(1);
+
+    opacity: 1;
+  }
+}
+
+@keyframes floatUp {
+
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-120vh);
+  }
+}
+
+@keyframes pulse {
+
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
